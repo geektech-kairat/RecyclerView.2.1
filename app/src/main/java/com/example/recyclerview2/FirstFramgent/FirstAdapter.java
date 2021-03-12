@@ -47,8 +47,8 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstViewHol
         return list.size();
     }
 
-    public void addItemModelForShowInHolder(Item_model item_model) {
-        list.add(item_model);
+    public void addItemModelForShowInHolder(Item_model itemModel) {
+        list.add(itemModel);
         notifyDataSetChanged();
     }
 
@@ -57,7 +57,8 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstViewHol
         list.addAll(list2);
         notifyDataSetChanged();
     }
-    public void deleteItem(int position){
+
+    public void deleteItem(int position) {
         list.remove(position);
         notifyDataSetChanged();
     }
@@ -81,10 +82,10 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstViewHol
             imageViewId = itemView.findViewById(R.id.item_layout_image);
         }
 
-        public void onBind(Item_model item_model, OnClickListener listener) {
-            name.setText(item_model.name);
-            number.setText(item_model.number);
-            imageViewId.setImageResource(item_model.imageId);
+        public void onBind(Item_model itemModel, OnClickListener listener) {
+            name.setText(itemModel.name);
+            number.setText(itemModel.number);
+            imageViewId.setImageResource(itemModel.imageId);
             itemView.setOnLongClickListener(v -> {
                 listener.checkPosition(getAdapterPosition());
                 return true;
